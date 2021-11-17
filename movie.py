@@ -21,19 +21,6 @@ def read_all():
     data = movie_schema.dump(movie)
     return data
 
-def read_offset_limit(offset,limit):
-    """
-    This function responds to a request for /api/movie/{offset}/{limit} with the limited list of movie, sorted by movie release date
-    :return:                json list of all movie for all director
-    """
-    # Query the database for all the movies
-    movie = Movie.query.order_by(Movie.id).slice(offset,limit)
-
-    # Serialize the list of movies from our data
-    movie_schema = MovieSchema(many=True)
-    data = movie_schema.dump(movie)
-    return data
-
 def read_one(movie_id):
     """
     This function responds to a request for /api/movie/{movie_id} with one matching note for the associated person
@@ -156,19 +143,6 @@ def delete(movie_id):
     # Otherwise, nope, didn't find that movie
     else:
         abort(404, f"Movie not found for Id: {movie_id}")
-
-def get_highest_rating():
-    """
-    This function responds to a request for /api/movie/popular
-    :return:                json list of top 5 movie
-    """
-    # Query the database for all the movies
-    movie = Movie.query.order_by(db.desc(Movie.vote_average)).limit(5).all()
-
-    # Serialize the list of movies from our data
-    movie_schema = MovieSchema(many=True)
-    data = movie_schema.dump(movie)
-    return data
 
 def read_by_director(director_id):
     """
