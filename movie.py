@@ -49,9 +49,9 @@ def read_one(movie_id):
 def create(director_id, movie):
     """
     This function creates a new movie related to the passed in director id.
-    :param director_id:         Id of the director the movie is related to
-    :param movie:               The JSON containing the movie data
-    :return:                    201 on success
+    :param director_id: Id of the director the movie is related to
+    :param movie: The JSON containing the movie data
+    :return: 201 on success
     """
 
     # get the parent director
@@ -82,9 +82,9 @@ def create(director_id, movie):
 def update(movie_id, movie):
     """
     This function updates an existing movie.
-    :param movie_id:            Id of the movie to update
-    :param movie:               The JSON containing the movie data
-    :return:                    200 on success
+    :param movie_id: Id of the movie to update
+    :param movie: The JSON containing the movie data
+    :return:  200 on success
     """
     update_movie = (
         Movie.query.filter(Movie.id == movie_id)

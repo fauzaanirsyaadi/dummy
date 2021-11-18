@@ -3,11 +3,11 @@ Main module of the server file
 """
 
 # 3rd party moudles
-from flask import render_template
+from flask import render_template, request, jsonify, make_response
+
 
 # Local modules
 import config
-
 
 # Get the application instance
 connex_app = config.connex_app
@@ -28,4 +28,8 @@ def home():
 
 
 if __name__ == "__main__":
-    connex_app.run(debug=True)
+    connex_app.run(
+        host="localhost",
+        port=5000,
+        debug=True
+    )

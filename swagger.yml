@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  description: This is the swagger file that goes with our server code
+  description: Ini adalah Swager UI
   version: "1.0.0"
-  title: Swagger Rest Article
+  title: Swagger REST API
 consumes:
   - application/json
 produces:
@@ -17,11 +17,11 @@ paths:
       operationId: director.read_all
       tags:
         - Director
-      summary: Read the entire set of director , sorted by director id
-      description: Read the entire set of director , sorted by director id
+      summary: Read/show all director
+      description: Read/show all director
       responses:
         200:
-          description: Successfully read set of directors
+          description: Successfully read all directors
           schema:
             type: array
             items:

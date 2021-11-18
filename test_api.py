@@ -1,67 +1,28 @@
-from app import connex_app
+from config import *
 import unittest
 
 
 class FlaskTest(unittest.TestCase):
-    data_director = {
-        "department": "test",
-        "gender": 1,
-        "name": "test",
-        "uid": 0
-    }
-    data_movie = {
-        "budget": 0,
-        "original_title": "test",
-        "overview": "test",
-        "popularity": 0,
-        "release_date": "2015/02/19",
-        "revenue": 0,
-        "tagline": "test",
-        "title": "test",
-        "uid": 0,
-        "vote_average": 0,
-        "vote_count": 0
-    }
-    def test_get_all_director(self):
-        connex_app.app.testing = True
-        tester = connex_app.app.test_client(self)
-        response = tester.get('/api/director/0/10')
-        self.assertEqual(response.status_code, 200)
-        print('')
-        print('----------------------------------------------------------------------')
-        print('Test Get_All_Director Completed')
-        print('----------------------------------------------------------------------')
-    
-    def test_post_director(self):
-        connex_app.app.testing = True
-        tester = connex_app.app.test_client(self)
-        response = tester.post('/api/director', json = self.data_director)
-        self.assertEqual(response.status_code, 201)
-        print('')
-        print('----------------------------------------------------------------------')
-        print('Test Post_Director Completed')
-        print('----------------------------------------------------------------------')
+    #  test are we have requirements.txt
+    def test_requirements(self):
+        if os.path.isfile("requirements.txt"):
+            self.assertTrue(True)
+        else:
+            self.assertTrue(False)
 
-    def test_get_all_movie(self):
-        connex_app.app.testing = True
-        tester = connex_app.app.test_client(self)
-        response = tester.get('/api/movie/0/10')
-        self.assertEqual(response.status_code, 200)
-        print('')
-        print('----------------------------------------------------------------------')
-        print('Test Get_All_Movie Completed')
-        print('----------------------------------------------------------------------')
+#     test are we use final_proj.db
+    def test_db(self):
+        if os.path.isfile("final_proj.db"):
+            self.assertTrue(True)
+        else:
+            self.assertTrue(False)
 
-    def test_post_movie(self):
-        connex_app.app.testing = True
-        tester = connex_app.app.test_client(self)
-        response = tester.post('/api/director/7100/movie', json = self.data_movie)
-        self.assertEqual(response.status_code, 201)
-        print('')
-        print('----------------------------------------------------------------------')
-        print('Test Post_Movie Completed')
-        print('----------------------------------------------------------------------')
-        
+#    test are we have a config.py
+    def test_config(self):
+        if os.path.isfile("config.py"):
+            self.assertTrue(True)
+        else:
+            self.assertTrue(False)
 
 
 if __name__ == "__name__":
