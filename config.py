@@ -8,7 +8,7 @@ from flask import jsonify, request
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+# from sqlalchemy import create_engine
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
